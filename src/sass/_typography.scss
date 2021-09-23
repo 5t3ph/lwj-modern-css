@@ -1,0 +1,12 @@
+:is(h1, h2, h3, dt, strong) {
+  font-family: "Ubuntu";
+  font-weight: 500;
+}
+
+:is(h1, h2, h3) {
+  line-height: 1.1;
+}
+
+h2 {
+  margin-block-end: 1.5em;
+}
