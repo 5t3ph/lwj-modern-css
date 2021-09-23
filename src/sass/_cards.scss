@@ -11,6 +11,9 @@
     aspect-ratio: 1;
     display: grid;
     grid-template-rows: 1fr auto;
+    // Fix Edge aspect-ratio bug from using relative row sizing
+    width: 100%;
+    height: 100%;
     background-image: linear-gradient(
       hsl(var(--chart-color), 85%, 95%),
       rgba(white, 0)
