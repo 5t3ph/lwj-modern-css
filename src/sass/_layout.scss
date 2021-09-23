@@ -1,0 +1,83 @@
+.container {
+  --container-width: 100ch;
+  --container-gutter: 2rem;
+  --container-padding: 1rem;
+
+  width: min(var(--container-width), 100% - var(--container-gutter));
+  margin-inline: auto;
+  padding-block: var(--container-padding);
+}
+
+.layout-grid {
+  --min: 20ch;
+  --gap: 1.5rem;
+
+  display: grid;
+  grid-gap: var(--gap);
+  /* min() with 100% prevents overflow
+  in extra narrow spaces */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
+
+  &--scrollsnap-cards {
+    @media (max-width: 60ch) and (any-hover: none) and (any-pointer: coarse) {
+      --gap: 1rem;
+
+      grid-auto-flow: column;
+      grid-template-columns: unset;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1.25rem;
+
+      > .card {
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        width: min(25ch, 70vw);
+      }
+    }
+  }
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  row-gap: 2rem;
+}
+
+main {
+  overflow: hidden;
+
+  > * + * {
+    margin-block-start: max(4rem, 8vh);
+  }
+}
+
+@media (min-width: 100ch) {
+  body {
+    grid-template-areas: "header main" "header footer";
+    grid-template-columns: fit-content(25ch) 1fr;
+    grid-template-rows: 1fr auto;
+  }
+
+  header {
+    grid-area: header;
+  }
+
+  footer {
+    grid-area: footer;
+  }
+
+  main.container,
+  footer .container {
+    --container-gutter: max(1rem, 8vw);
+  }
+
+  main {
+    margin-block-start: 3vh;
+  }
+}

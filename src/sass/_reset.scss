@@ -1,0 +1,32 @@
+/*
+Derived from Andy Bell's Modern CSS Reset
+@link https://piccalil.li/blog/a-modern-css-reset/
+🟣 = additions by Stephanie Eckles
+*/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+p,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  /* 🟣 Set base font-family */
+  font-family: system-ui, sans-serif;
+}

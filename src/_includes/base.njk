@@ -15,6 +15,7 @@
 	<script src="https://unpkg.com/css-paint-polyfill"></script>
 	<script> 
 		CSS.paintWorklet.addModule("https://unpkg.com/houdini-decorative-barcharts");
+
 		// Trickery to get the polyfill to draw the charts in Firefox and Safari
 		setTimeout(() => {
 			document.querySelector('.summary').style.width = '100.01%';
